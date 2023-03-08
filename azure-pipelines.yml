@@ -27,16 +27,3 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'SonarCloud'
-    organization: 'dev-orgnization'
-    scannerMode: 'MSBuild'
-    projectKey: 'Agileproject'
-    projectName: 'Agileproject'
-
-- task: SonarCloudAnalyze@1
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
